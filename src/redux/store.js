@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
 import videoReducer from "./videoSlice";
-// import postReducer from "./postSlice";
+import musicReducer from "./musicSlice";
 export default configureStore({
   reducer: {
     video: videoReducer,
-    // post: postReducer,
+    music: musicReducer,
   },
 });
