@@ -1,16 +1,23 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
-// https://webomnizz.com/how-to-create-a-toggle-switch-button-in-react/
+import { useDispatch } from "react-redux";
+import { setDay, setNight } from "../../redux/videoSlice";
 import "./app.css";
 function Toggle() {
-  const [toggle, setToggle] = useState(false);
+  const dispatch = useDispatch();
 
+  const [toggle, setToggle] = useState(false);
   const triggerToggle = () => {
     setToggle(!toggle);
+    if (toggle) {
+      dispatch(setDay());
+    } else {
+      dispatch(setNight());
+    }
   };
+
   return (
     <div
-      onChange={triggerToggle}
+      onClick={triggerToggle}
       className={`wrg-toggle ${toggle ? "wrg-toggle--checked" : ""}`}
     >
       <div className="wrg-toggle-container">
@@ -30,19 +37,5 @@ function Toggle() {
     </div>
   );
 }
-
-Toggle.propTypes = {
-  disabled: PropTypes.bool,
-  defaultChecked: PropTypes.bool,
-  className: PropTypes.string,
-  onChange: PropTypes.func,
-  icons: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.shape({
-      checked: PropTypes.node,
-      unchecked: PropTypes.node,
-    }),
-  ]),
-};
 
 export default Toggle;

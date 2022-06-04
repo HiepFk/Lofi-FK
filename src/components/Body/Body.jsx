@@ -5,11 +5,8 @@ import "./body.css";
 
 function Body() {
   const { daynight, rain } = useSelector((state) => state.video);
-  console.log(daynight, rain);
 
   const status = `${daynight}-${rain}`;
-  console.log(status);
-
   return (
     <>
       <video

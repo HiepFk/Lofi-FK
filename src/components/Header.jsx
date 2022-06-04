@@ -2,18 +2,41 @@ import React from "react";
 import styled from "styled-components";
 import { MdZoomOutMap } from "react-icons/md";
 import Toggle from "./Toggle/Toggle";
+import Rain from "./Rain/Rain";
 
 function Header() {
+  const setFullScreen = (e) => {
+    e.stopPropagation();
+    const html = document.querySelector("html");
+    const isFullScreen = document.fullscreenElement;
+    if (isFullScreen === null) {
+      html.requestFullscreen();
+    } else {
+      document.exitFullscreen();
+    }
+  };
   return (
     <Wrapper>
       <Logo src="/assets/icons/logo.gif" alt="" />
       <IconEffect>
-        <Zoom>
+        <Zoom onClick={setFullScreen}>
           <MdZoomOutMap
-            style={{ color: "white", width: "2rem", height: "2rem" }}
+            style={{
+              color: "white",
+              width: "2rem",
+              height: "2rem",
+              marginRight: "2rem",
+              cursor: "pointer",
+            }}
           />
         </Zoom>
-        <Toggle />
+
+        <Toggle
+          style={{
+            marginRight: "2rem",
+          }}
+        />
+        <Rain />
       </IconEffect>
     </Wrapper>
   );
@@ -40,12 +63,14 @@ const IconEffect = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 3rem;
 `;
 
 const Zoom = styled.div`
-  width: 6rem;
-  height: 5rem;
-  cursor: pointer;
+  :hover {
+    opacity: 0.5;
+    transition: all 0.25s linear;
+  }
 `;
 
 export default Header;
