@@ -2,7 +2,7 @@ import { Body, Header, Footer } from "./components";
 function App() {
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       <Body />
       {/* <Footer /> */}
     </>
