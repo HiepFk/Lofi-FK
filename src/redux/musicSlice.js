@@ -6,6 +6,7 @@ export const musicSlice = createSlice({
     mode: "chill",
     index: 0,
     status: true,
+    volume: 80,
   },
   reducers: {
     setMode: (state, actions) => {
@@ -23,9 +24,12 @@ export const musicSlice = createSlice({
     setPlay: (state) => {
       state.pause = true;
     },
+    setVolume: (state, actions) => {
+      state.volume = actions.payload;
+    },
   },
 });
 
-export const { setMode, nextSong, prevSong, setPause, setPlay } =
+export const { setMode, nextSong, prevSong, setPause, setPlay, setVolume } =
   musicSlice.actions;
 export default musicSlice.reducer;

@@ -4,44 +4,57 @@ import { useSelector } from "react-redux";
 import "./body.css";
 
 function Body() {
-  const { daynight, rain } = useSelector((state) => state.video);
-
+  const { daynight, rain, video } = useSelector((state) => state.video);
   const status = `${daynight}-${rain}`;
   return (
     <>
-      <video
-        className={status === "night-clear" ? "videoIn" : "videoOut"}
-        autoPlay
-        loop
-        muted
-      >
-        <source src="/assets/video/Night-clear.mp4" type="video/mp4" />
-      </video>
-      <video
-        className={status === "night-rain" ? "videoIn" : "videoOut"}
-        autoPlay
-        loop
-        muted
-      >
-        <source src="/assets/video/Night-rainny.mp4" type="video/mp4" />
-      </video>
-      {/* Day */}
-      <video
-        className={status === "day-clear" ? "videoIn" : "videoOut"}
-        autoPlay
-        loop
-        muted
-      >
-        <source src="/assets/video/Day-sunny.mp4" type="video/mp4" />
-      </video>
-      <video
-        className={status === "day-rain" ? "videoIn" : "videoOut"}
-        autoPlay
-        loop
-        muted
-      >
-        <source src="/assets/video/Day-rainny.mp4" type="video/mp4" />
-      </video>
+      {video === 1 && (
+        <video className="videoIn" autoPlay loop muted>
+          <source src="/assets/video/1.mp4" type="video/mp4" />
+        </video>
+      )}
+      {video === 2 && (
+        <video className="videoIn" autoPlay loop muted>
+          <source src="/assets/video/2.mp4" type="video/mp4" />
+        </video>
+      )}
+      {video === 0 && (
+        <>
+          <video
+            className={status === "night-clear" ? "videoIn" : "videoOut"}
+            autoPlay
+            loop
+            muted
+          >
+            <source src="/assets/video/Night-clear.mp4" type="video/mp4" />
+          </video>
+          <video
+            className={status === "night-rain" ? "videoIn" : "videoOut"}
+            autoPlay
+            loop
+            muted
+          >
+            <source src="/assets/video/Night-rainny.mp4" type="video/mp4" />
+          </video>
+          {/* Day */}
+          <video
+            className={status === "day-clear" ? "videoIn" : "videoOut"}
+            autoPlay
+            loop
+            muted
+          >
+            <source src="/assets/video/Day-sunny.mp4" type="video/mp4" />
+          </video>
+          <video
+            className={status === "day-rain" ? "videoIn" : "videoOut"}
+            autoPlay
+            loop
+            muted
+          >
+            <source src="/assets/video/Day-rainny.mp4" type="video/mp4" />
+          </video>
+        </>
+      )}
     </>
   );
 }

@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const videoSlice = createSlice({
   name: "video",
   initialState: {
+    video: 0,
     daynight: "day",
     rain: "clear",
   },
@@ -19,8 +20,12 @@ export const videoSlice = createSlice({
     setRain: (state) => {
       state.rain = "rain";
     },
+    setVideo: (state, actions) => {
+      state.video = actions.payload;
+    },
   },
 });
 
-export const { setDay, setNight, setClear, setRain } = videoSlice.actions;
+export const { setDay, setNight, setClear, setRain, setVideo } =
+  videoSlice.actions;
 export default videoSlice.reducer;

@@ -1,10 +1,15 @@
 import React from "react";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
+
 import { MdZoomOutMap } from "react-icons/md";
 import Toggle from "./Toggle/Toggle";
 import Rain from "./Rain/Rain";
+import Setting from "./Setting/Setting";
 
 function Header() {
+  const { video } = useSelector((state) => state.video);
+
   const setFullScreen = (e) => {
     e.stopPropagation();
     const html = document.querySelector("html");
@@ -30,13 +35,17 @@ function Header() {
             }}
           />
         </Zoom>
-
-        <Toggle
-          style={{
-            marginRight: "2rem",
-          }}
-        />
-        <Rain />
+        {video === 0 && (
+          <>
+            <Toggle
+              style={{
+                marginRight: "2rem",
+              }}
+            />
+            <Rain />
+          </>
+        )}
+        <Setting />
       </IconEffect>
     </Wrapper>
   );

@@ -1,0 +1,40 @@
+.mixed {
+  color: white;
+  border-radius: 30px;
+  padding: 1rem;
+  position: absolute;
+  top: 10rem;
+  right: 9rem;
+  scrollbar-width: none;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.hidden {
+  visibility: hidden;
+}
+.mixed_title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.mixed_volume {
+  font-size: 2rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.mixed_icon {
+  cursor: pointer;
+  transition: opacity 0.25s linear;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+}
+.mixed_icon:hover {
+  opacity: 0.5;
+}
+.noise_wrapper {
+  height: 15rem;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}

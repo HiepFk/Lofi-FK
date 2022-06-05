@@ -1,7 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 
 function Player({ music }) {
+  const { volume } = useSelector((state) => state.music);
+
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentSong, setCurrentSong] = useState(0);
   const audioElement = useRef();
@@ -16,6 +19,14 @@ function Player({ music }) {
       audioElement.current.pause();
     }
   });
+
+  useEffect(() => {
+    if (audioElement.current.ended) {
+      nextSong();
+    }
+    audioElement.current.volume = volume / 100;
+    // eslint-disable-next-line no-use-before-define
+  }, [volume]);
 
   const nextSong = () => {
     setCurrentSong(() => {
@@ -34,7 +45,7 @@ function Player({ music }) {
       let temp = currentSong;
       temp--;
 
-      if (temp === 0) {
+      if (temp < 0) {
         temp = music.length - 1;
       }
       return temp;
