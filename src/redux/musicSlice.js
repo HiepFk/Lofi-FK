@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const musicSlice = createSlice({
   name: "music",
   initialState: {
-    mode: "chill",
+    mode: "Sad",
     index: 0,
     status: true,
     volume: 80,

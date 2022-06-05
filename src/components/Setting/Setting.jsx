@@ -13,7 +13,6 @@ function Setting() {
   };
   const SetHideMixed = () => {
     setHideTheme(false);
-    console.log(hideMixed);
     setHideMixed(!hideMixed);
   };
 

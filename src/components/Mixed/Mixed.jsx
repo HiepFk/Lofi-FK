@@ -5,18 +5,19 @@ import { useSelector } from "react-redux";
 
 import { setVolume } from "../../redux/musicSlice";
 import Noise from "../Noise/Noise";
+import Type from "../Type/Type";
 import { noise } from "../../data/ListNoise";
 
 import "./app.css";
 function Mixed({ hideMixed }) {
   const dispatch = useDispatch();
   const { volume } = useSelector((state) => state.music);
-
   const [value, setValue] = useState(volume);
 
   return (
     <>
       <div className={hideMixed ? "mixed" : "mixed hidden"}>
+        <Type />
         <div className="mixed_title">Volume</div>
         <div className="mixed_volume">
           <HiVolumeOff

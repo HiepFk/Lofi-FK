@@ -34,7 +34,7 @@ function Theme() {
             onClick={() => setTheme(2)}
           />
           <div className="theme_title">If you have any lofi loop videos</div>
-          <div className="theme_title">please send theme to me </div>
+          <div className="theme_title">please send them to me </div>
           <div className="theme_title">
             Thanks <span>❤❤❤</span>{" "}
           </div>

@@ -3,7 +3,7 @@ export const noise = [
     id: 1,
     name: "Birds",
     srcMusic: "./assets/musics/birds.mp3",
-    srcImg: "./assets/icons/birds.svg",
+    srcImg: "./assets/icons/bird.svg",
   },
   {
     id: 2,

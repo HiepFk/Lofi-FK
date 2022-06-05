@@ -1,4 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
+import styled from "styled-components";
+
 import "./app.css";
 function Noise({ item }) {
   const { id, name, srcImg, srcMusic } = item;
@@ -14,9 +16,10 @@ function Noise({ item }) {
   return (
     <div className="noise" key={id}>
       <audio loop src={srcMusic} ref={audioElement}></audio>
-
       <div className="noise_name">{name}</div>
-      <input
+      <img src={srcImg} alt="" className="noise_img" />
+      <Input
+        img={srcImg}
         type="range"
         id="vol"
         name="vol"
@@ -27,13 +30,14 @@ function Noise({ item }) {
         onChange={(e) => {
           setVolume(e.target.value);
         }}
-        style={{
-          width: "15rem",
-        }}
       />
-      {/* <img src={srcImg} alt="" /> */}
     </div>
   );
 }
+
+const Input = styled.input`
+  width: 15rem;
+  accent-color: rgb(255, 255, 255, 0.5);
+`;
 
 export default Noise;

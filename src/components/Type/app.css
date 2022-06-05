@@ -1,0 +1,27 @@
+.type {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.type_wrapper {
+  background-color: #14141d;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 10px;
+  width: 3rem;
+  height: 5rem;
+  cursor: pointer;
+}
+.type_icon {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+.type_name {
+  font-weight: bold;
+}
+.active {
+  background-color: #f1a851;
+}
