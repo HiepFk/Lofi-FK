@@ -9,7 +9,6 @@ function Body() {
 
   return (
     <>
-      {/* {video === 1 && ( */}
       <video
         className={video === 1 ? "video in" : "video out"}
         autoPlay
@@ -18,7 +17,6 @@ function Body() {
       >
         <source src="/assets/video/1.mp4" type="video/mp4" />
       </video>
-      {/* )} */}
       <video
         className={video === 2 ? "video in" : "video out"}
         autoPlay
@@ -27,9 +25,7 @@ function Body() {
       >
         <source src="/assets/video/2.mp4" type="video/mp4" />
       </video>
-      {/* {video >= 3 && (
-        <img src={`/assets/video/${video}.gif`} className="videoIn" alt="" />
-      )} */}
+
       <img
         src="/assets/video/3.gif"
         className={video === 3 ? "video in" : "video out"}
@@ -64,7 +60,6 @@ function Body() {
           >
             <source src="/assets/video/Night-rainny.mp4" type="video/mp4" />
           </video>
-          {/* Day */}
           <video
             className={status === "day-clear" ? "video in" : "video out"}
             autoPlay
