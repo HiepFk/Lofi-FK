@@ -1,11 +1,13 @@
 import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setPlay, setPause } from "../redux/musicSlice";
 
 function Player({ music }) {
-  const { volume } = useSelector((state) => state.music);
+  const dispatch = useDispatch();
+  const { volume, pause } = useSelector((state) => state.music);
 
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(pause);
   const [currentSong, setCurrentSong] = useState(0);
   const audioElement = useRef();
 
@@ -15,24 +17,18 @@ function Player({ music }) {
   useEffect(() => {
     if (isPlaying) {
       audioElement.current.play();
+      dispatch(setPlay());
     } else {
       audioElement.current.pause();
-    }
-  });
-
-  useEffect(() => {
-    if (audioElement.current.ended) {
-      nextSong();
+      dispatch(setPause());
     }
     audioElement.current.volume = volume / 100;
-    // eslint-disable-next-line no-use-before-define
-  }, [volume]);
+  });
 
   const nextSong = () => {
     setCurrentSong(() => {
       let temp = currentSong;
       temp++;
-
       if (temp > music.length - 1) {
         temp = 0;
       }
@@ -44,7 +40,6 @@ function Player({ music }) {
     setCurrentSong(() => {
       let temp = currentSong;
       temp--;
-
       if (temp < 0) {
         temp = music.length - 1;
       }
@@ -54,7 +49,11 @@ function Player({ music }) {
 
   return (
     <Wrapper>
-      <audio loop src={music[currentSong].src} ref={audioElement}></audio>
+      <audio
+        src={music[currentSong].src}
+        ref={audioElement}
+        onEnded={nextSong}
+      ></audio>
       <img src="/assets/icons/prev.svg" alt="" onClick={prevSong} />
       <div onClick={setPlaying}>
         {!isPlaying ? (

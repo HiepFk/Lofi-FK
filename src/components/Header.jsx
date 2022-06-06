@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
 
@@ -6,6 +6,7 @@ import { MdZoomOutMap } from "react-icons/md";
 import Toggle from "./Toggle/Toggle";
 import Rain from "./Rain/Rain";
 import Setting from "./Setting/Setting";
+import About from "./About/About";
 
 function Header() {
   const { video } = useSelector((state) => state.video);
@@ -20,10 +21,19 @@ function Header() {
       document.exitFullscreen();
     }
   };
+
+  const [about, setAbout] = useState(false);
+
+  const setHideAbout = () => {
+    setAbout(!about);
+  };
+
   return (
     <Wrapper>
       <Logo src="/assets/icons/logo.gif" alt="" />
+      {about && <About />}
       <IconEffect>
+        <AboutMe onClick={setHideAbout}>About</AboutMe>
         <Zoom onClick={setFullScreen}>
           <MdZoomOutMap
             style={{
@@ -35,6 +45,7 @@ function Header() {
             }}
           />
         </Zoom>
+
         {video === 0 && (
           <>
             <Toggle
@@ -67,6 +78,21 @@ const Wrapper = styled.div`
 const Logo = styled.img`
   width: 13rem;
   height: 7rem;
+`;
+const AboutMe = styled.div`
+  font-size: 1rem;
+  font-weight: bold;
+  margin-right: 2rem;
+  color: white;
+  z-index: 10;
+  padding: 0.5rem;
+  border: 1px solid rgba(255, 255, 255);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: opacity 0.25s linear;
+  :hover {
+    opacity: 0.5;
+  }
 `;
 const IconEffect = styled.div`
   display: flex;

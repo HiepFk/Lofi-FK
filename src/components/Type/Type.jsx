@@ -37,7 +37,7 @@ function Type() {
         return (
           <div
             className={
-              item.text === mode ? "type_wrapper active " : "type_wrapper  "
+              item.text === mode ? "type_wrapper active " : "type_wrapper"
             }
             key={item.id}
             onClick={() => {

@@ -53,8 +53,8 @@ function Mixed({ hideMixed }) {
         </div>
         <div className="mixed_title">Background noises</div>
         <div className="noise_wrapper">
-          {noise.map((item) => {
-            return <Noise item={item} />;
+          {noise.map((item, index) => {
+            return <Noise item={item} key={index} />;
           })}
         </div>
       </div>

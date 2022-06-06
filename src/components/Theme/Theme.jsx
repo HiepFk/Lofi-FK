@@ -8,6 +8,7 @@ function Theme() {
   const setTheme = (value) => {
     dispatch(setVideo(value));
   };
+  const items = [0, 1, 2, 3, 4, 5];
 
   return (
     <>
@@ -15,24 +16,18 @@ function Theme() {
         <div className="theme_title">Choose your theme 😉 and</div>
         <div className="theme_title"> enjoy it 😊</div>
         <div className="theme_container">
-          <img
-            src="/assets/theme/0.png"
-            alt=""
-            className="theme_img"
-            onClick={() => setTheme(0)}
-          />
-          <img
-            src="/assets/theme/1.png"
-            alt=""
-            className="theme_img"
-            onClick={() => setTheme(1)}
-          />
-          <img
-            src="/assets/theme/2.png"
-            alt=""
-            className="theme_img"
-            onClick={() => setTheme(2)}
-          />
+          {items.map((item) => {
+            return (
+              <img
+                src={`/assets/theme/${item}.png`}
+                alt=""
+                className="theme_img"
+                onClick={() => setTheme(item)}
+                key={item}
+              />
+            );
+          })}
+
           <div className="theme_title">If you have any lofi loop videos</div>
           <div className="theme_title">please send them to me </div>
           <div className="theme_title">
