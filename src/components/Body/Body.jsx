@@ -42,42 +42,46 @@ function Body() {
         alt=""
       />
 
-      {video === 0 && (
-        <>
-          <video
-            className={status === "night-clear" ? "video in" : "video out"}
-            autoPlay
-            loop
-            muted
-          >
-            <source src="/assets/video/Night-clear.mp4" type="video/mp4" />
-          </video>
-          <video
-            className={status === "night-rain" ? "video in" : "video out"}
-            autoPlay
-            loop
-            muted
-          >
-            <source src="/assets/video/Night-rainny.mp4" type="video/mp4" />
-          </video>
-          <video
-            className={status === "day-clear" ? "video in" : "video out"}
-            autoPlay
-            loop
-            muted
-          >
-            <source src="/assets/video/Day-sunny.mp4" type="video/mp4" />
-          </video>
-          <video
-            className={status === "day-rain" ? "video in" : "video out"}
-            autoPlay
-            loop
-            muted
-          >
-            <source src="/assets/video/Day-rainny.mp4" type="video/mp4" />
-          </video>
-        </>
-      )}
+      <video
+        className={
+          video === 0 && status === "night-clear" ? "video in" : "video out"
+        }
+        autoPlay
+        loop
+        muted
+      >
+        <source src="/assets/video/Night-clear.mp4" type="video/mp4" />
+      </video>
+      <video
+        className={
+          video === 0 && status === "night-rain" ? "video in" : "video out"
+        }
+        autoPlay
+        loop
+        muted
+      >
+        <source src="/assets/video/Night-rainny.mp4" type="video/mp4" />
+      </video>
+      <video
+        className={
+          video === 0 && status === "day-clear" ? "video in" : "video out"
+        }
+        autoPlay
+        loop
+        muted
+      >
+        <source src="/assets/video/Day-sunny.mp4" type="video/mp4" />
+      </video>
+      <video
+        className={
+          video === 0 && status === "day-rain" ? "video in" : "video out"
+        }
+        autoPlay
+        loop
+        muted
+      >
+        <source src="/assets/video/Day-rainny.mp4" type="video/mp4" />
+      </video>
     </>
   );
 }
