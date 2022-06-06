@@ -14,6 +14,7 @@ function About() {
         </a>
       ),
       text: "Facebook",
+      link: "https://www.facebook.com/hiepfk.128",
     },
     {
       id: 2,
@@ -23,6 +24,7 @@ function About() {
         </a>
       ),
       text: "Instagram",
+      link: "https://www.instagram.com/hiep.fk/",
     },
     {
       id: 3,
@@ -32,13 +34,16 @@ function About() {
         </a>
       ),
       text: "Github",
+      link: "https://github.com/HiepFk",
     },
     {
       id: 4,
       icon: <MdEmail className="about_icon email"></MdEmail>,
       text: "hiepnh.fk",
+      link: "#",
     },
   ];
+
   return (
     <div className="about">
       <div className="about_wrapper">
@@ -65,13 +70,18 @@ function About() {
           further help the cause, we have decided to donate 1% of our monthly
           revenue to mental health organizations worldwide.
         </div>
+        <div className="about_desc">
+          Trang website này được clone lại từ trang lofi.co bởi Hiệp. Trang web
+          có thể chậm một chút. Tôi hy vọng bạn thích nó . Chúc bạn có những
+          phút giây chill ❤
+        </div>
         <div className="about_icons">
           {items.map((item) => {
             return (
-              <div className="about_container ">
+              <a href={item.link} className="about_container ">
                 {item.icon}
-                <div>{item.text}</div>
-              </div>
+                <div className="icon_text">{item.text}</div>
+              </a>
             );
           })}
         </div>

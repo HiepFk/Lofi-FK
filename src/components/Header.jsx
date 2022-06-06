@@ -27,7 +27,6 @@ function Header() {
   const setHideAbout = () => {
     setAbout(!about);
   };
-
   return (
     <Wrapper>
       <Logo src="/assets/icons/logo.gif" alt="" />

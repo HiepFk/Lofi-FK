@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { setVideo } from "../../redux/videoSlice";
 import "./app.css";
-function Theme() {
+function Theme({ hideTheme }) {
   const dispatch = useDispatch();
 
   const setTheme = (value) => {
@@ -12,7 +12,7 @@ function Theme() {
 
   return (
     <>
-      <div className="theme">
+      <div className={hideTheme ? "theme" : "theme hidden"}>
         <div className="theme_title">Choose your theme 😉 and</div>
         <div className="theme_title"> enjoy it 😊</div>
         <div className="theme_container">

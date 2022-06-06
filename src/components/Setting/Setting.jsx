@@ -33,7 +33,7 @@ function Setting() {
           </div>
         </div>
       </div>
-      {hideTheme && <Theme />}
+      <Theme hideTheme={hideTheme} />
       <Mixed hideMixed={hideMixed} />
     </>
   );

@@ -9,6 +9,9 @@
   scrollbar-width: none;
   background-color: rgba(0, 0, 0, 0.6);
 }
+.hidden {
+  visibility: hidden;
+}
 .theme_container {
   display: flex;
   flex-direction: column;
